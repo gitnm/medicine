@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +14,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $this->clearData();
+        $this->call(SubstanceSeeder::class);
+        $this->call(ManufacturerSeeder::class);
+        $this->call(MedicineSeeder::class);
+    }
+    
+    private function clearData() {
+        DB::table('medicines')->delete();
+        DB::table('substances')->delete();
+        DB::table('manufacturers')->delete();
     }
 }

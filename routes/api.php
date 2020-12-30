@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\SubstanceController;
+use App\Http\Controllers\Api\ManufacturerController;
+use App\Http\Controllers\Api\MedicineController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+
+Route::get('substances', [SubstanceController::class, 'index']);
+Route::get('manufacturers', [ManufacturerController::class, 'index']);
+Route::resource('medicines', MedicineController::class);

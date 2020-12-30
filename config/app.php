@@ -228,5 +228,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
-
+    
+    
+    'jwt_token' => env('JWT_TOKEN'),
 ];

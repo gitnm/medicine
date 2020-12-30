@@ -1,0 +1,345 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Medicine API Documentation",
+        "description": "Medicine API",
+        "contact": {
+            "email": "admin@admin.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost/api",
+            "description": "Medicine API Server"
+        }
+    ],
+    "paths": {
+        "/manufacturers": {
+            "get": {
+                "tags": [
+                    "Manufacturers"
+                ],
+                "summary": "Show all manufacturers",
+                "operationId": "App\\Http\\Controllers\\Api\\ManufacturerController::index",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "indicate current page",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/medicines": {
+            "get": {
+                "tags": [
+                    "Medicines"
+                ],
+                "summary": "Show all medicines",
+                "operationId": "App\\Http\\Controllers\\Api\\MedicineController::index",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "indicate current page",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Medicines"
+                ],
+                "summary": "Add one medicine",
+                "operationId": "App\\Http\\Controllers\\Api\\MedicineController::store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Updated name of the medicine",
+                                        "type": "string"
+                                    },
+                                    "substance_id": {
+                                        "description": "Updated substance_id of the medicine",
+                                        "type": "integer",
+                                        "format": "int64"
+                                    },
+                                    "manufacturer_id": {
+                                        "description": "Updated manufacturer_id of the medicine",
+                                        "type": "integer",
+                                        "format": "int64"
+                                    },
+                                    "price": {
+                                        "description": "Updated price of the medicine",
+                                        "type": "number",
+                                        "format": "double"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/medicines/{id}": {
+            "get": {
+                "tags": [
+                    "Medicines"
+                ],
+                "summary": "Show one medicine",
+                "operationId": "App\\Http\\Controllers\\Api\\MedicineController::show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id medicine",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Medicines"
+                ],
+                "summary": "Update one medicine",
+                "operationId": "App\\Http\\Controllers\\Api\\MedicineController::update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id medicine",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Updated name of the medicine",
+                                        "type": "string"
+                                    },
+                                    "substance_id": {
+                                        "description": "Updated substance_id of the medicine",
+                                        "type": "integer",
+                                        "format": "int64"
+                                    },
+                                    "manufacturer_id": {
+                                        "description": "Updated manufacturer_id of the medicine",
+                                        "type": "integer",
+                                        "format": "int64"
+                                    },
+                                    "price": {
+                                        "description": "Updated price of the medicine",
+                                        "type": "number",
+                                        "format": "double"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Medicines"
+                ],
+                "summary": "Delete one medicine",
+                "operationId": "App\\Http\\Controllers\\Api\\MedicineController::destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id medicine",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/substances": {
+            "get": {
+                "tags": [
+                    "Substances"
+                ],
+                "summary": "Show all substances",
+                "operationId": "App\\Http\\Controllers\\Api\\SubstanceController::index",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "indicate current page",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Substances"
+        },
+        {
+            "name": "Manufacturers"
+        },
+        {
+            "name": "Medicines"
+        }
+    ],
+    "security": {
+        "bearer": {
+            "type": "http",
+            "description": "Authorization token obtained from logging in.",
+            "name": "Authorization",
+            "in": "header",
+            "scheme": "bearer"
+        }
+    }
+}

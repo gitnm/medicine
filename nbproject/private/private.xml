@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/nick/projects/medicine/database/factories/UserFactory.php</file>
+            <file>file:/home/nick/projects/medicine/database/migrations/2020_12_29_205057_create_medicines_table.php</file>
+            <file>file:/home/nick/projects/medicine/database/seeders/DatabaseSeeder.php</file>
+            <file>file:/home/nick/projects/medicine/app/Models/Substance.php</file>
+            <file>file:/home/nick/projects/medicine/database/migrations/2020_12_29_195929_create_substances_table.php</file>
+            <file>file:/home/nick/projects/medicine/database/factories/SubstanceFactory.php</file>
+            <file>file:/home/nick/projects/medicine/app/Models/User.php</file>
+            <file>file:/home/nick/projects/medicine/database/seeders/SubstanceSeeder.php</file>
+            <file>file:/home/nick/projects/medicine/database/migrations/2020_12_29_204157_create_manufacturers_table.php</file>
+        </group>
+    </open-files>
+</project-private>
